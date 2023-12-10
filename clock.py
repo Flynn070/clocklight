@@ -34,4 +34,9 @@ while True:
     for rom in thermometerRoms:
         print((thermometer.read_temp(rom)),"C")
     print("\n")
-    time.sleep(0.1)
+    ledStrip[0] = (255, 0, 0)
+    ledStrip.write()
+    time.sleep(1)
+    ledStrip[0] = (0, 0, 0)
+    ledStrip.write()
+    time.sleep(10)
