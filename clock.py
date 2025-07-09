@@ -58,7 +58,7 @@ displayedString2 = ""
 currentLed = [(0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)]
 ledArray = [(0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)]
 
-time.sleep(5)
+time.sleep(1)
 lcd.clear()
 while True:
     #get current time and format into string
@@ -82,7 +82,7 @@ while True:
     #if light level is higher than potentiometer then keep light on, pot used for light tolerance
     if lightPercent > potPercent:
         lcd.backlight_on()
-        ledMultiplier = 1 - (potPercent / lightPercent)
+        ledMultiplier = truncate(1 - (potPercent / lightPercent), 1)
         print("light")
     else:
         lcd.backlight_off()
