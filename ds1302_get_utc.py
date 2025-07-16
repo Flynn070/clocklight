@@ -5,13 +5,14 @@
 
 import sys
 import pyRPiRTC
+import datetime
 
-rtc = pyRPiRTC.DS1302(clk_pin=11, data_pin=13, ce_pin=15)
+rtc = pyRPiRTC.DS1302(clk_pin=19, data_pin=18, ce_pin=17)
 
 try:
     # read date and time from RTC chip
     dt = rtc.read_datetime()
-    print(dt.strftime('%Y-%m-%dT%H:%M:%SZ'))
+    print("current time: " + str(rtc.read_datetime()))
 except ValueError:
     sys.exit('error with RTC chip, check wiring')
 finally:
